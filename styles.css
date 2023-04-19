@@ -19,6 +19,7 @@ body {
 }
 
 aside {
+  height: 94vh;
   width: 16vw;
   display: flex;
   flex-direction: column;
@@ -93,4 +94,14 @@ main {
     0px 20px
   );
   padding: 8px;
+}
+
+/* WEAPONS */
+.pixel-weapon {
+  width: 160px;
+  height: 160px;
+}
+
+.hidden {
+  display: none;
 }
