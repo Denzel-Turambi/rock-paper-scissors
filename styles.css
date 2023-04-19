@@ -1,0 +1,107 @@
+/* GENERAL */
+body {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Press Start 2P', cursive;
+  background: black;
+  color: white;
+  margin: 0px;
+}
+
+/* SIDE BARS */
+.sprite {
+  height: 48px;
+  width: 48px;
+}
+
+.ganon {
+  width: 72px;
+}
+
+aside {
+  height: 94vh;
+  width: 16vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 16px;
+  background:rgb(232, 224, 203);
+  color: black;
+  border: 8px solid gray;
+}
+
+/* MAIN SECTION */
+main {
+  width: 68vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-selection {
+  width: 32vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.box {
+  cursor: pointer;
+  width: 32vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 12px solid;
+  clip-path: polygon(
+    0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px
+  );
+  padding: 8px;
+}
+
+/* WEAPONS */
+.pixel-weapon {
+  width: 160px;
+  height: 160px;
+}
+
+.hidden {
+  display: none;
+}
