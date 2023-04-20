@@ -7,6 +7,7 @@ var classicWeaponSelection = document.querySelector('.classic-mode');
 
 // EVENT LISTENERS
 classicGame.addEventListener('click', showWeapons);
+difficultGame.addEventListener('click', showWeapons);
 
 // FUNCTIONS/EVENTS
 function showWeapons() {
