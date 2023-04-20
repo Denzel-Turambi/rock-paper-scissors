@@ -14,17 +14,19 @@
       <p>Wins: 0</p>
     </aside>
     <main>
-      <h1>Rock, Paper, Scissors</h1>
-      <p class="subtitle">Choose your game!</p>
-      <p class="subtitle hidden">It's dangerous to go alone! Choose a weapon!</p>
+      <hgroup>
+        <h1>Rock, Paper, Scissors</h1>
+        <p class="subtitle">Choose your game!</p>
+        <p class="subtitle hidden">It's dangerous to go alone! Choose a weapon!</p>
+      </hgroup>
       <section class="game-selection">
-        <div class="box" id="classic-game">
+        <div class="box" id="classic-game-selection">
           <p>CLASSIC</p>
           <p>rock > scissors</p>
           <p>paper > rock</p>
           <p>scissors > paper</p>
         </div>
-        <div class="box" id="difficult-game">
+        <div class="box" id="difficult-game-selection">
           <p>DIFFICULT</p>
           <p>rock > scissors & triforce</p>
           <p>paper > rock & sword</p>
@@ -33,12 +35,12 @@
           <p>sword > scissors & rock</p>
         </div>
       </section>
-      <section class="classic-mode hidden">
+      <section class="weapons-wrapper classic-mode hidden">
         <img class="pixel-weapon" src="./assets/pixel-rock.webp" alt="pixel-rock">
         <img class="pixel-weapon" src="./assets/scroll-paper.png" alt="pixel-paper">
         <img class="pixel-weapon" src="./assets/scissors-pixel.png" alt="pixel-scissors">
       </section>
-      <section class="difficult-mode hidden">
+      <section class="weapons-wrapper difficult-mode hidden">
         <img class="pixel-weapon" src="./assets/pixel-rock.webp" alt="pixel-rock">
         <img class="pixel-weapon" src="./assets/scroll-paper.png" alt="pixel-paper">
         <img class="pixel-weapon" src="./assets/scissors-pixel.png" alt="pixel-scissors">
