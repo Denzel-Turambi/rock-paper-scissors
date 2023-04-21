@@ -13,16 +13,33 @@ classicGame.addEventListener('click', showClassicWeapons);
 difficultGame.addEventListener('click', showDifficultWeapons);
 
 // FUNCTIONS/EVENTS
-function showClassicWeapons() {
-  gameSelection.classList.add('hidden');
-  gameSubtitle.classList.add('hidden');
-  classicWeaponSelection.classList.remove('hidden');
-  weaponSubtitle.classList.remove('hidden');
+function createPlayer() {
+  var player = {
+    name: 'Link',
+    token: '👩🏻',
+    wins: 0
+  }
+  return player;
 }
 
+function showClassicWeapons() {
+  hide(gameSelection);
+  hide(gameSubtitle);
+  show(classicWeaponSelection);
+  show(weaponSubtitle);
+};
+
 function showDifficultWeapons() {
-  gameSelection.classList.add('hidden');
-  gameSubtitle.classList.add('hidden');
-  difficultWeaponSelection.classList.remove('hidden');
-  weaponSubtitle.classList.remove('hidden');
+  hide(gameSelection);
+  hide(gameSubtitle);
+  show(difficultWeaponSelection);
+  show(weaponSubtitle);
+};
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+function show(element) {
+  element.classList.remove('hidden');
 }
