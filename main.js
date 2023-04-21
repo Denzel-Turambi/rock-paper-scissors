@@ -13,14 +13,25 @@ classicGame.addEventListener('click', showClassicWeapons);
 difficultGame.addEventListener('click', showDifficultWeapons);
 
 // FUNCTIONS/EVENTS
-function createPlayer() {
+function createPlayer(name, token, wins) {
   var player = {
-    name: 'Link',
-    token: '👩🏻',
-    wins: 0
+    name: name || 'Link',
+    token: token || './assets/TLoZ_Link_Sprite.webp',
+    wins: wins || 0
   }
   return player;
-}
+};
+
+function createGame(gameType) {
+  var humanPlayer = createPlayer();
+  var computerPlayer = createPlayer('Ganondorf', '💻', 0);
+  var game = {
+    humanPlayer: humanPlayer,
+    computerPlayer: computerPlayer,
+    gameType: gameType
+  }
+  return game;
+};
 
 function showClassicWeapons() {
   hide(gameSelection);
@@ -38,8 +49,8 @@ function showDifficultWeapons() {
 
 function hide(element) {
   element.classList.add('hidden');
-}
+};
 
 function show(element) {
   element.classList.remove('hidden');
-}
+};
