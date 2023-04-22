@@ -14,35 +14,38 @@
       <p>Wins: 0</p>
     </aside>
     <main>
-      <h1>Rock, Paper, Scissors</h1>
-      <p>Choose your game!</p>
+      <hgroup>
+        <h1>Rock, Paper, Scissors</h1>
+        <p class="game-subtitle">Choose your game!</p>
+        <p class="weapon-subtitle hidden">It's dangerous to go alone! Choose a weapon!</p>
+      </hgroup>
       <section class="game-selection">
-        <div class="box">
+        <div class="box" id="classic-game-selection">
           <p>CLASSIC</p>
           <p>rock > scissors</p>
           <p>paper > rock</p>
           <p>scissors > paper</p>
         </div>
-        <div class="box">
+        <div class="box" id="difficult-game-selection">
           <p>DIFFICULT</p>
-          <p>rock > scissors & lizard</p>
-          <p>paper > rock & alien</p>
-          <p>scissors > paper & lizard</p>
-          <p>lizard > paper & alien</p>
-          <p>alien > scissors & rock</p>
+          <p>rock > scissors & triforce</p>
+          <p>paper > rock & sword</p>
+          <p>scissors > paper & triforce</p>
+          <p>triforce > paper & sword</p>
+          <p>sword > scissors & rock</p>
         </div>
       </section>
-      <section class="classic-mode hidden">
-        <img class="pixel-weapon" src="./assets/pixel-rock.webp" alt="pixel-rock">
-        <img class="pixel-weapon" src="./assets/scroll-paper.png" alt="pixel-paper">
-        <img class="pixel-weapon" src="./assets/scissors-pixel.png" alt="pixel-scissors">
+      <section class="weapons-wrapper classic-mode hidden">
+        <img class="pixel-weapon rock" src="./assets/pixel-rock.webp" alt="pixel-rock">
+        <img class="pixel-weapon paper" src="./assets/scroll-paper.png" alt="pixel-paper">
+        <img class="pixel-weapon scissors" src="./assets/scissors-pixel.png" alt="pixel-scissors">
       </section>
-      <section class="difficult-mode hidden">
-        <img class="pixel-weapon" src="./assets/pixel-rock.webp" alt="pixel-rock">
-        <img class="pixel-weapon" src="./assets/scroll-paper.png" alt="pixel-paper">
-        <img class="pixel-weapon" src="./assets/scissors-pixel.png" alt="pixel-scissors">
-        <img class="pixel-weapon" src="./assets/triforce-icon-4.jpeg" alt="pixel-tri-force">
-        <img class="pixel-weapon" src="./assets/master-sword.png" alt="pixel-sword">
+      <section class="weapons-wrapper difficult-mode hidden">
+        <img class="pixel-weapon rock" src="./assets/pixel-rock.webp" alt="pixel-rock">
+        <img class="pixel-weapon paper" src="./assets/scroll-paper.png" alt="pixel-paper">
+        <img class="pixel-weapon scissors" src="./assets/scissors-pixel.png" alt="pixel-scissors">
+        <img class="pixel-weapon tri-force" src="./assets/triforce-icon-4.jpeg" alt="pixel-tri-force">
+        <img class="pixel-weapon sword" src="./assets/master-sword.png" alt="pixel-sword">
       </section>
     </main>
     <aside>
