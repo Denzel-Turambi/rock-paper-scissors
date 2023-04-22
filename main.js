@@ -24,7 +24,7 @@ function createPlayer(name, token, wins) {
 
 function createGame(gameType) {
   var humanPlayer = createPlayer();
-  var computerPlayer = createPlayer('Ganondorf', '💻', 0);
+  var computerPlayer = createPlayer('Ganondorf', './assets/Ganon-ALTTP-Sprite.png', 0);
   var game = {
     humanPlayer: humanPlayer,
     computerPlayer: computerPlayer,
