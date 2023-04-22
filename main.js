@@ -38,6 +38,7 @@ function showClassicWeapons() {
   hide(gameSubtitle);
   show(classicWeaponSelection);
   show(weaponSubtitle);
+  createGame(classicGame);
 };
 
 function showDifficultWeapons() {
@@ -45,6 +46,7 @@ function showDifficultWeapons() {
   hide(gameSubtitle);
   show(difficultWeaponSelection);
   show(weaponSubtitle);
+  createGame(difficultGame);
 };
 
 function hide(element) {
