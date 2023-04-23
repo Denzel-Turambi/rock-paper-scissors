@@ -33,14 +33,6 @@ function computerTurn() {
   return weapons[randomIndex];
 };
 
-function takeTurn(playerSelection, computerSelection) {
-  // playerSelection = rock
-  // console.log(playerSelection);
-  // if (playerSelection === computerSelection) {
-  //   return `It's a tie`
-  // }
-};
-
 function runComparison(weapon) {
   var computerWeapon = computerTurn();
   hide(classicWeaponSelection);
