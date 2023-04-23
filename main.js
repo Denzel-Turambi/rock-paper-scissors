@@ -11,6 +11,8 @@ var difficultWeaponSelection = document.querySelector('.difficult-mode');
 var chosenWeapons = document.querySelector('.chosen-weapons');
 var gameSubtitle = document.querySelector('.game-subtitle');
 var weaponSubtitle = document.querySelector('.weapon-subtitle');
+var subtitleSection = document.querySelector('.subtitles');
+var resultStatement = document.querySelector('.result-subtitle');
 // Weapons:
 var rock = document.querySelector('.rock');
 rock.addEventListener('click', () => runComparison(rock));
@@ -41,25 +43,40 @@ function takeTurn(playerSelection, computerSelection) {
 
 function runComparison(weapon) {
   var computerWeapon = computerTurn();
-  compare(weapon, computerWeapon);
   hide(classicWeaponSelection);
   var cloneWeapon = weapon.cloneNode(true);
   var cloneComputerWeapon = computerWeapon.cloneNode(true);
   chosenWeapons.appendChild(cloneWeapon);
   chosenWeapons.appendChild(cloneComputerWeapon);
   show(chosenWeapons);
+  var compareResult = compare(weapon, computerWeapon);
+  console.log(compareResult)
+  hide(weaponSubtitle);
+  resultStatement.innerText = compareResult
+  show(resultStatement);
   setTimeout(() => {
     hide(chosenWeapons);
     while (chosenWeapons.firstChild) {
       chosenWeapons.removeChild(chosenWeapons.firstChild);
   };
     show(classicWeaponSelection);
+    hide(resultStatement);
+    show(weaponSubtitle);
   }, 2000);
 };
 
 function compare(userWeapon, computerWeapon) {
-  
-}
+  var userWeaponName = userWeapon.getAttribute('data-name');
+  var computerWeaponName = computerWeapon.getAttribute('data-name');
+  if (userWeaponName === computerWeaponName) {
+    return "It's a draw!"
+  } else if ((userWeaponName === 'rock' && computerWeaponName === 'scissors')
+  || (userWeaponName === 'scissors' && computerWeaponName === 'paper')
+  || (userWeaponName === 'paper' && computerWeaponName === 'rock')) {
+    return 'You won!'
+  }
+  return 'You lost!'
+};
 
 function createPlayer(name, token, wins) {
   var player = {
