@@ -9,6 +9,7 @@ var difficultGame = document.querySelector('#difficult-game-selection');
 var gameSelection = document.querySelector('.game-selection');
 var classicWeaponSelection = document.querySelector('.classic-mode');
 var difficultWeaponSelection = document.querySelector('.difficult-mode');
+var changeGameButton = document.querySelector('.change-game-button');
 var chosenWeapons = document.querySelector('.chosen-weapons');
 var gameSubtitle = document.querySelector('.game-subtitle');
 var weaponSubtitle = document.querySelector('.weapon-subtitle');
@@ -40,8 +41,20 @@ sword.addEventListener('click', () => runComparison(sword));
 // EVENT LISTENERS
 classicGame.addEventListener('click', showClassicWeapons);
 difficultGame.addEventListener('click', showDifficultWeapons);
+changeGameButton.addEventListener('click', changeGameMode);
 
 // FUNCTIONS/EVENTS
+function changeGameMode () {
+  if (gameChoice === 'classic') {
+    hide(changeGameButton);
+    hide(classicWeaponSelection);
+    show(gameSelection);
+  }
+  hide(changeGameButton);
+  hide(difficultWeaponSelection);
+  show(gameSelection);
+}
+
 function computerTurn() {
   var randomIndex = Math.floor(Math.random() * weapons.length);
   return weapons[randomIndex];
@@ -121,6 +134,7 @@ function showClassicWeapons() {
   hide(gameSubtitle);
   show(classicWeaponSelection);
   show(weaponSubtitle);
+  show(changeGameButton);
   createGame(classicGame);
 };
 
@@ -131,6 +145,7 @@ function showDifficultWeapons() {
   hide(gameSubtitle);
   show(difficultWeaponSelection);
   show(weaponSubtitle);
+  show(changeGameButton);
   createGame(difficultGame);
 };
 
