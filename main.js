@@ -1,7 +1,7 @@
 // DATA MODEL
-var playerSelection;
-var computerSelection;
 var weapons;
+var userWins = 0;
+var computerWins = 0;
 // QUERY SELECTORS
 var classicGame = document.querySelector('#classic-game-selection');
 var difficultGame = document.querySelector('#difficult-game-selection');
@@ -13,6 +13,8 @@ var gameSubtitle = document.querySelector('.game-subtitle');
 var weaponSubtitle = document.querySelector('.weapon-subtitle');
 var subtitleSection = document.querySelector('.subtitles');
 var resultStatement = document.querySelector('.result-subtitle');
+var userWinCount = document.querySelector('.user-win-count');
+var computerWinCount = document.querySelector('.computer-win-count');
 // Weapons:
 var rock = document.querySelector('.rock');
 rock.addEventListener('click', () => runComparison(rock));
@@ -25,7 +27,7 @@ var weaponChoice = document.querySelector('.weapons-wrapper');
 // EVENT LISTENERS
 classicGame.addEventListener('click', showClassicWeapons);
 difficultGame.addEventListener('click', showDifficultWeapons);
-weaponChoice.addEventListener('click', takeTurn);
+// weaponChoice.addEventListener('click', takeTurn);
 
 // FUNCTIONS/EVENTS
 function computerTurn() {
@@ -42,7 +44,6 @@ function runComparison(weapon) {
   chosenWeapons.appendChild(cloneComputerWeapon);
   show(chosenWeapons);
   var compareResult = compare(weapon, computerWeapon);
-  console.log(compareResult)
   hide(weaponSubtitle);
   resultStatement.innerText = compareResult
   show(resultStatement);
@@ -50,7 +51,7 @@ function runComparison(weapon) {
     hide(chosenWeapons);
     while (chosenWeapons.firstChild) {
       chosenWeapons.removeChild(chosenWeapons.firstChild);
-  };
+    };
     show(classicWeaponSelection);
     hide(resultStatement);
     show(weaponSubtitle);
@@ -65,8 +66,12 @@ function compare(userWeapon, computerWeapon) {
   } else if ((userWeaponName === 'rock' && computerWeaponName === 'scissors')
   || (userWeaponName === 'scissors' && computerWeaponName === 'paper')
   || (userWeaponName === 'paper' && computerWeaponName === 'rock')) {
+    userWins += 1;
+    userWinCount.innerText = `Wins: ${userWins}`
     return 'You won!'
   }
+  computerWins += 1;
+  computerWinCount.innerText = `Wins: ${computerWins}`
   return 'You lost!'
 };
 
