@@ -79,15 +79,16 @@ function compare(userWeapon, computerWeapon) {
   var computerWeaponName = computerWeapon.getAttribute('data-name');
   if (userWeaponName === computerWeaponName) {
     return "It's a draw!"
-  } else if ((userWeaponName === 'rock' && computerWeaponName === 'scissors' || computerWeaponName === 'triforce')
-  || (userWeaponName === 'scissors' && computerWeaponName === 'paper' || computerWeaponName === 'triforce')
-  || (userWeaponName === 'paper' && computerWeaponName === 'rock' || computerWeaponName === 'sword')
-  || (userWeaponName === 'triforce' && computerWeaponName === 'paper' || computerWeaponName === 'sword')
-  || (userWeaponName === 'sword' && computerWeaponName === 'scissors' || computerWeaponName === 'rock')) {
+  } else if ((userWeaponName === 'rock' && (computerWeaponName === 'scissors' || computerWeaponName === 'triforce'))
+  || (userWeaponName === 'scissors' && (computerWeaponName === 'paper' || computerWeaponName === 'triforce'))
+  || (userWeaponName === 'paper' && (computerWeaponName === 'rock' || computerWeaponName === 'sword'))
+  || (userWeaponName === 'triforce' && (computerWeaponName === 'paper' || computerWeaponName === 'sword'))
+  || (userWeaponName === 'sword' && (computerWeaponName === 'scissors' || computerWeaponName === 'rock'))) {
     userWins += 1;
+    console.log(computerWeaponName)
     userWinCount.innerText = `Wins: ${userWins}`
     return 'You won!'
-  }
+  } 
   computerWins += 1;
   computerWinCount.innerText = `Wins: ${computerWins}`
   return 'You lost!'
