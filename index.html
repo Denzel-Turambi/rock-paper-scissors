@@ -11,13 +11,16 @@
     <aside>
       <img class="sprite" src="./assets/TLoZ_Link_Sprite.webp" alt="link sprite">
       <h2>Link</h2>
-      <p>Wins: 0</p>
+      <p class="user-win-count">Wins: 0</p>
     </aside>
     <main>
       <hgroup>
         <h1>Rock, Paper, Scissors</h1>
-        <p class="game-subtitle">Choose your game!</p>
-        <p class="weapon-subtitle hidden">It's dangerous to go alone! Choose a weapon!</p>
+        <div class="subtitles">
+          <p class="game-subtitle">Choose your game!</p>
+          <p class="weapon-subtitle hidden">It's dangerous to go alone! Choose a weapon!</p>
+          <p class="result-subtitle hidden"></p>
+        </div>
       </hgroup>
       <section class="game-selection">
         <div class="box" id="classic-game-selection">
@@ -36,22 +39,25 @@
         </div>
       </section>
       <section class="weapons-wrapper classic-mode hidden">
-        <img class="pixel-weapon rock" src="./assets/pixel-rock.webp" alt="pixel-rock">
-        <img class="pixel-weapon paper" src="./assets/scroll-paper.png" alt="pixel-paper">
-        <img class="pixel-weapon scissors" src="./assets/scissors-pixel.png" alt="pixel-scissors">
+        <img class="pixel-weapon rock" src="./assets/pixel-rock.webp" alt="pixel-rock" data-name="rock">
+        <img class="pixel-weapon paper" src="./assets/scroll-paper.png" alt="pixel-paper" data-name="paper">
+        <img class="pixel-weapon scissors" src="./assets/scissors-pixel.png" alt="pixel-scissors" data-name="scissors">
+      </section>
+      <section class="chosen-weapons">
+        <!-- show the chosen weapons -->
       </section>
       <section class="weapons-wrapper difficult-mode hidden">
-        <img class="pixel-weapon rock" src="./assets/pixel-rock.webp" alt="pixel-rock">
-        <img class="pixel-weapon paper" src="./assets/scroll-paper.png" alt="pixel-paper">
-        <img class="pixel-weapon scissors" src="./assets/scissors-pixel.png" alt="pixel-scissors">
-        <img class="pixel-weapon tri-force" src="./assets/triforce-icon-4.jpeg" alt="pixel-tri-force">
-        <img class="pixel-weapon sword" src="./assets/master-sword.png" alt="pixel-sword">
+        <img class="pixel-weapon rock" src="./assets/pixel-rock.webp" alt="pixel-rock" data-name="rock">
+        <img class="pixel-weapon paper" src="./assets/scroll-paper.png" alt="pixel-paper" data-name="paper">
+        <img class="pixel-weapon scissors" src="./assets/scissors-pixel.png" alt="pixel-scissors" data-name="scissors">
+        <img class="pixel-weapon tri-force" src="./assets/triforce-icon-4.jpeg" alt="pixel-tri-force" data-name="triforce">
+        <img class="pixel-weapon sword" src="./assets/master-sword.png" alt="pixel-sword" data-name="sword">
       </section>
     </main>
     <aside>
       <img class="sprite ganon" src="./assets/Ganon-ALTTP-Sprite.png" alt="ganon sprite">
       <h2>Ganondorf</h2>
-      <p>Wins: 0</p>
+      <p class="computer-win-count">Wins: 0</p>
     </aside>
     <script type="text/javascript" src="main.js"></script>
   </body>

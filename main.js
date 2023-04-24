@@ -1,18 +1,80 @@
 // DATA MODEL
+var weapons;
+var userWins = 0;
+var computerWins = 0;
 // QUERY SELECTORS
 var classicGame = document.querySelector('#classic-game-selection');
 var difficultGame = document.querySelector('#difficult-game-selection');
 var gameSelection = document.querySelector('.game-selection');
 var classicWeaponSelection = document.querySelector('.classic-mode');
 var difficultWeaponSelection = document.querySelector('.difficult-mode');
+var chosenWeapons = document.querySelector('.chosen-weapons');
 var gameSubtitle = document.querySelector('.game-subtitle');
 var weaponSubtitle = document.querySelector('.weapon-subtitle');
+var subtitleSection = document.querySelector('.subtitles');
+var resultStatement = document.querySelector('.result-subtitle');
+var userWinCount = document.querySelector('.user-win-count');
+var computerWinCount = document.querySelector('.computer-win-count');
+// Weapons:
+var rock = document.querySelector('.rock');
+rock.addEventListener('click', () => runComparison(rock));
+var paper = document.querySelector('.paper');
+paper.addEventListener('click', () => runComparison(paper));
+var scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', () => runComparison(scissors));
+var weaponChoice = document.querySelector('.weapons-wrapper');
 
 // EVENT LISTENERS
 classicGame.addEventListener('click', showClassicWeapons);
 difficultGame.addEventListener('click', showDifficultWeapons);
+// weaponChoice.addEventListener('click', takeTurn);
 
 // FUNCTIONS/EVENTS
+function computerTurn() {
+  var randomIndex = Math.floor(Math.random() * weapons.length);
+  return weapons[randomIndex];
+};
+
+function runComparison(weapon) {
+  var computerWeapon = computerTurn();
+  hide(classicWeaponSelection);
+  var cloneWeapon = weapon.cloneNode(true);
+  var cloneComputerWeapon = computerWeapon.cloneNode(true);
+  chosenWeapons.appendChild(cloneWeapon);
+  chosenWeapons.appendChild(cloneComputerWeapon);
+  show(chosenWeapons);
+  var compareResult = compare(weapon, computerWeapon);
+  hide(weaponSubtitle);
+  resultStatement.innerText = compareResult
+  show(resultStatement);
+  setTimeout(() => {
+    hide(chosenWeapons);
+    while (chosenWeapons.firstChild) {
+      chosenWeapons.removeChild(chosenWeapons.firstChild);
+    };
+    show(classicWeaponSelection);
+    hide(resultStatement);
+    show(weaponSubtitle);
+  }, 2000);
+};
+
+function compare(userWeapon, computerWeapon) {
+  var userWeaponName = userWeapon.getAttribute('data-name');
+  var computerWeaponName = computerWeapon.getAttribute('data-name');
+  if (userWeaponName === computerWeaponName) {
+    return "It's a draw!"
+  } else if ((userWeaponName === 'rock' && computerWeaponName === 'scissors')
+  || (userWeaponName === 'scissors' && computerWeaponName === 'paper')
+  || (userWeaponName === 'paper' && computerWeaponName === 'rock')) {
+    userWins += 1;
+    userWinCount.innerText = `Wins: ${userWins}`
+    return 'You won!'
+  }
+  computerWins += 1;
+  computerWinCount.innerText = `Wins: ${computerWins}`
+  return 'You lost!'
+};
+
 function createPlayer(name, token, wins) {
   var player = {
     name: name || 'Link',
@@ -34,6 +96,7 @@ function createGame(gameType) {
 };
 
 function showClassicWeapons() {
+  weapons = [rock, paper, scissors];
   hide(gameSelection);
   hide(gameSubtitle);
   show(classicWeaponSelection);
