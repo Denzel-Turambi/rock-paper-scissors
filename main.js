@@ -98,7 +98,6 @@ function compare(userWeapon, computerWeapon) {
   || (userWeaponName === 'triforce' && (computerWeaponName === 'paper' || computerWeaponName === 'sword'))
   || (userWeaponName === 'sword' && (computerWeaponName === 'scissors' || computerWeaponName === 'rock'))) {
     userWins += 1;
-    console.log(computerWeaponName)
     userWinCount.innerText = `Wins: ${userWins}`
     return 'You won!'
   } 
@@ -106,6 +105,10 @@ function compare(userWeapon, computerWeapon) {
   computerWinCount.innerText = `Wins: ${computerWins}`
   return 'You lost!'
 };
+
+// function increment(player) {
+//   player.wins += 1;
+// }
 
 function createPlayer(name, token, wins) {
   var player = {
@@ -117,8 +120,8 @@ function createPlayer(name, token, wins) {
 };
 
 function createGame(gameType) {
-  var humanPlayer = createPlayer();
-  var computerPlayer = createPlayer('Ganondorf', './assets/Ganon-ALTTP-Sprite.png', 0);
+  var humanPlayer = createPlayer('Link', './assets/TLoZ_Link_Sprite.webp', userWins);
+  var computerPlayer = createPlayer('Ganondorf', './assets/Ganon-ALTTP-Sprite.png', computerWins);
   var game = {
     humanPlayer: humanPlayer,
     computerPlayer: computerPlayer,
