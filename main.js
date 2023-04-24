@@ -20,23 +20,23 @@ var computerWinCount = document.querySelector('.computer-win-count');
 // Weapons:
 var rocks = document.querySelectorAll('.rock');
 var rock1= rocks[0];
-rock1.addEventListener('click', () => runComparison(rock1));
+rock1.addEventListener('click', () => takeTurn(rock1));
 var rock2 = rocks[1];
-rock2.addEventListener('click', () => runComparison(rock2));
+rock2.addEventListener('click', () => takeTurn(rock2));
 var papers = document.querySelectorAll('.paper');
 var paper1 = papers[0];
-paper1.addEventListener('click', () => runComparison(paper1));
+paper1.addEventListener('click', () => takeTurn(paper1));
 var paper2 = papers[1];
-paper2.addEventListener('click', () => runComparison(paper2));
+paper2.addEventListener('click', () => takeTurn(paper2));
 var scissors = document.querySelectorAll('.scissors');
 var scissors1 = scissors[0];
-scissors1.addEventListener('click', () => runComparison(scissors1));
+scissors1.addEventListener('click', () => takeTurn(scissors1));
 var scissors2 = scissors[1];
-scissors2.addEventListener('click', () => runComparison(scissors2));
+scissors2.addEventListener('click', () => takeTurn(scissors2));
 var triforce = document.querySelector('.tri-force');
-triforce.addEventListener('click', () => runComparison(triforce));
+triforce.addEventListener('click', () => takeTurn(triforce));
 var sword = document.querySelector('.sword');
-sword.addEventListener('click', () => runComparison(sword));
+sword.addEventListener('click', () => takeTurn(sword));
 
 // EVENT LISTENERS
 classicGame.addEventListener('click', showClassicWeapons);
@@ -60,7 +60,7 @@ function computerTurn() {
   return weapons[randomIndex];
 };
 
-function runComparison(weapon) {
+function takeTurn(weapon) {
   var gameWeaponSelection = gameChoice === 'classic' ? classicWeaponSelection : difficultWeaponSelection;
   var computerWeapon = computerTurn();
   hide(gameWeaponSelection);
