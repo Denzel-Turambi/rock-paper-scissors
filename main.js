@@ -2,6 +2,7 @@
 var weapons;
 var userWins = 0;
 var computerWins = 0;
+var gameChoice;
 // QUERY SELECTORS
 var classicGame = document.querySelector('#classic-game-selection');
 var difficultGame = document.querySelector('#difficult-game-selection');
@@ -16,18 +17,29 @@ var resultStatement = document.querySelector('.result-subtitle');
 var userWinCount = document.querySelector('.user-win-count');
 var computerWinCount = document.querySelector('.computer-win-count');
 // Weapons:
-var rock = document.querySelector('.rock');
-rock.addEventListener('click', () => runComparison(rock));
-var paper = document.querySelector('.paper');
-paper.addEventListener('click', () => runComparison(paper));
-var scissors = document.querySelector('.scissors');
-scissors.addEventListener('click', () => runComparison(scissors));
-var weaponChoice = document.querySelector('.weapons-wrapper');
+var rocks = document.querySelectorAll('.rock');
+var rock1= rocks[0];
+rock1.addEventListener('click', () => runComparison(rock1));
+var rock2 = rocks[1];
+rock2.addEventListener('click', () => runComparison(rock2));
+var papers = document.querySelectorAll('.paper');
+var paper1 = papers[0];
+paper1.addEventListener('click', () => runComparison(paper1));
+var paper2 = papers[1];
+paper2.addEventListener('click', () => runComparison(paper2));
+var scissors = document.querySelectorAll('.scissors');
+var scissors1 = scissors[0];
+scissors1.addEventListener('click', () => runComparison(scissors1));
+var scissors2 = scissors[1];
+scissors2.addEventListener('click', () => runComparison(scissors2));
+var triforce = document.querySelector('.tri-force');
+triforce.addEventListener('click', () => runComparison(triforce));
+var sword = document.querySelector('.sword');
+sword.addEventListener('click', () => runComparison(sword));
 
 // EVENT LISTENERS
 classicGame.addEventListener('click', showClassicWeapons);
 difficultGame.addEventListener('click', showDifficultWeapons);
-// weaponChoice.addEventListener('click', takeTurn);
 
 // FUNCTIONS/EVENTS
 function computerTurn() {
@@ -36,23 +48,27 @@ function computerTurn() {
 };
 
 function runComparison(weapon) {
+  var gameWeaponSelection = gameChoice === 'classic' ? classicWeaponSelection : difficultWeaponSelection;
   var computerWeapon = computerTurn();
-  hide(classicWeaponSelection);
+  hide(gameWeaponSelection);
+  // Create clone of weapons
   var cloneWeapon = weapon.cloneNode(true);
   var cloneComputerWeapon = computerWeapon.cloneNode(true);
   chosenWeapons.appendChild(cloneWeapon);
   chosenWeapons.appendChild(cloneComputerWeapon);
   show(chosenWeapons);
+  // Checks to see who wins
   var compareResult = compare(weapon, computerWeapon);
   hide(weaponSubtitle);
   resultStatement.innerText = compareResult
   show(resultStatement);
+  // 2 second timer after the game has been played:
   setTimeout(() => {
     hide(chosenWeapons);
     while (chosenWeapons.firstChild) {
       chosenWeapons.removeChild(chosenWeapons.firstChild);
     };
-    show(classicWeaponSelection);
+    show(gameWeaponSelection);
     hide(resultStatement);
     show(weaponSubtitle);
   }, 2000);
@@ -63,9 +79,11 @@ function compare(userWeapon, computerWeapon) {
   var computerWeaponName = computerWeapon.getAttribute('data-name');
   if (userWeaponName === computerWeaponName) {
     return "It's a draw!"
-  } else if ((userWeaponName === 'rock' && computerWeaponName === 'scissors')
-  || (userWeaponName === 'scissors' && computerWeaponName === 'paper')
-  || (userWeaponName === 'paper' && computerWeaponName === 'rock')) {
+  } else if ((userWeaponName === 'rock' && computerWeaponName === 'scissors' || computerWeaponName === 'triforce')
+  || (userWeaponName === 'scissors' && computerWeaponName === 'paper' || computerWeaponName === 'triforce')
+  || (userWeaponName === 'paper' && computerWeaponName === 'rock' || computerWeaponName === 'sword')
+  || (userWeaponName === 'triforce' && computerWeaponName === 'paper' || computerWeaponName === 'sword')
+  || (userWeaponName === 'sword' && computerWeaponName === 'scissors' || computerWeaponName === 'rock')) {
     userWins += 1;
     userWinCount.innerText = `Wins: ${userWins}`
     return 'You won!'
@@ -96,7 +114,8 @@ function createGame(gameType) {
 };
 
 function showClassicWeapons() {
-  weapons = [rock, paper, scissors];
+  weapons = [rock1, paper1, scissors1];
+  gameChoice = 'classic';
   hide(gameSelection);
   hide(gameSubtitle);
   show(classicWeaponSelection);
@@ -105,6 +124,8 @@ function showClassicWeapons() {
 };
 
 function showDifficultWeapons() {
+  weapons = [rock2, paper2, scissors2, triforce, sword];
+  gameChoice = 'difficult';
   hide(gameSelection);
   hide(gameSubtitle);
   show(difficultWeaponSelection);
