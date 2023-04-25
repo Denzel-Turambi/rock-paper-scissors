@@ -44,17 +44,6 @@ difficultGame.addEventListener('click', showDifficultWeapons);
 changeGameButton.addEventListener('click', changeGameMode);
 
 // FUNCTIONS/EVENTS
-function changeGameMode () {
-  if (gameChoice === 'classic') {
-    hide(changeGameButton);
-    hide(classicWeaponSelection);
-    show(gameSelection);
-  }
-  hide(changeGameButton);
-  hide(difficultWeaponSelection);
-  show(gameSelection);
-}
-
 function computerTurn() {
   var randomIndex = Math.floor(Math.random() * weapons.length);
   return weapons[randomIndex];
@@ -106,10 +95,6 @@ function compare(userWeapon, computerWeapon) {
   return 'You lost!'
 };
 
-// function increment(player) {
-//   player.wins += 1;
-// }
-
 function createPlayer(name, token, wins) {
   var player = {
     name: name || 'Link',
@@ -127,29 +112,39 @@ function createGame(gameType) {
     computerPlayer: computerPlayer,
     gameType: gameType
   }
-  return game;
+  console.log(game.gameType)
+  return game.gameType;
 };
 
 function showClassicWeapons() {
   weapons = [rock1, paper1, scissors1];
-  gameChoice = 'classic';
+  gameChoice = createGame('classic');
   hide(gameSelection);
   hide(gameSubtitle);
   show(classicWeaponSelection);
   show(weaponSubtitle);
   show(changeGameButton);
-  createGame(classicGame);
 };
 
 function showDifficultWeapons() {
   weapons = [rock2, paper2, scissors2, triforce, sword];
-  gameChoice = 'difficult';
+  gameChoice = createGame('difficult');
   hide(gameSelection);
   hide(gameSubtitle);
   show(difficultWeaponSelection);
   show(weaponSubtitle);
   show(changeGameButton);
-  createGame(difficultGame);
+};
+
+function changeGameMode () {
+  if (gameChoice === 'classic') {
+    hide(changeGameButton);
+    hide(classicWeaponSelection);
+    show(gameSelection);
+  }
+  hide(changeGameButton);
+  hide(difficultWeaponSelection);
+  show(gameSelection);
 };
 
 function hide(element) {
