@@ -18,6 +18,12 @@ hgroup,
   align-items: center;
 }
 
+button,
+.subtitles,
+.box {
+  padding: 8px;
+}
+
 /* SIDE BARS */
 .sprite {
   height: 48px;
@@ -42,7 +48,6 @@ button {
   font-family: 'Press Start 2P', cursive;
   background: maroon;
   color: white;
-  padding: 8px;
   margin-top: 80px;
 }
 
@@ -99,11 +104,6 @@ main {
     4px 20px,
     0px 20px
   );
-  padding: 8px;
-}
-
-.subtitles {
-  padding: 8px;
 }
 
 /* WEAPONS */
