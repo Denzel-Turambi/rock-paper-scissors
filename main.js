@@ -53,18 +53,18 @@ function takeTurn(weapon) {
   var gameWeaponSelection = gameChoice === 'classic' ? classicWeaponSelection : difficultWeaponSelection;
   var computerWeapon = computerTurn();
   hide(gameWeaponSelection);
-  // Create clone of weapons
+  
   var cloneWeapon = weapon.cloneNode(true);
   var cloneComputerWeapon = computerWeapon.cloneNode(true);
   chosenWeapons.appendChild(cloneWeapon);
   chosenWeapons.appendChild(cloneComputerWeapon);
   show(chosenWeapons);
-  // Checks to see who wins
+
   var compareResult = compare(weapon, computerWeapon);
   hide(weaponSubtitle);
   resultStatement.innerText = compareResult
   show(resultStatement);
-  // 2 second timer after the game has been played:
+  
   setTimeout(() => {
     hide(chosenWeapons);
     while (chosenWeapons.firstChild) {
