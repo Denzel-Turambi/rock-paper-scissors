@@ -112,7 +112,7 @@ function createGame(gameType) {
     computerPlayer: computerPlayer,
     gameType: gameType
   }
-  console.log(game.gameType)
+  console.log(game);
   return game.gameType;
 };
 
@@ -137,14 +137,14 @@ function showDifficultWeapons() {
 };
 
 function changeGameMode () {
-  if (gameChoice === 'classic') {
-    hide(changeGameButton);
-    hide(classicWeaponSelection);
-    show(gameSelection);
-  }
   hide(changeGameButton);
-  hide(difficultWeaponSelection);
+  hide(weaponSubtitle);
   show(gameSelection);
+  show(gameSubtitle);
+  if (gameChoice === 'classic') {
+    hide(classicWeaponSelection);
+  }
+  hide(difficultWeaponSelection);
 };
 
 function hide(element) {
