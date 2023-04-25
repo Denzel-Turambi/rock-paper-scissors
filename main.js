@@ -17,7 +17,7 @@ var subtitleSection = document.querySelector('.subtitles');
 var resultStatement = document.querySelector('.result-subtitle');
 var userWinCount = document.querySelector('.user-win-count');
 var computerWinCount = document.querySelector('.computer-win-count');
-// Weapons:
+// WEAPONS
 var rocks = document.querySelectorAll('.rock');
 var rock1= rocks[0];
 rock1.addEventListener('click', () => takeTurn(rock1));
@@ -53,7 +53,7 @@ function takeTurn(weapon) {
   var gameWeaponSelection = gameChoice === 'classic' ? classicWeaponSelection : difficultWeaponSelection;
   var computerWeapon = computerTurn();
   hide(gameWeaponSelection);
-  
+
   var cloneWeapon = weapon.cloneNode(true);
   var cloneComputerWeapon = computerWeapon.cloneNode(true);
   chosenWeapons.appendChild(cloneWeapon);
