@@ -17,7 +17,7 @@ var subtitleSection = document.querySelector('.subtitles');
 var resultStatement = document.querySelector('.result-subtitle');
 var userWinCount = document.querySelector('.user-win-count');
 var computerWinCount = document.querySelector('.computer-win-count');
-// Weapons:
+// WEAPONS
 var rocks = document.querySelectorAll('.rock');
 var rock1= rocks[0];
 rock1.addEventListener('click', () => takeTurn(rock1));
@@ -44,17 +44,6 @@ difficultGame.addEventListener('click', showDifficultWeapons);
 changeGameButton.addEventListener('click', changeGameMode);
 
 // FUNCTIONS/EVENTS
-function changeGameMode () {
-  if (gameChoice === 'classic') {
-    hide(changeGameButton);
-    hide(classicWeaponSelection);
-    show(gameSelection);
-  }
-  hide(changeGameButton);
-  hide(difficultWeaponSelection);
-  show(gameSelection);
-}
-
 function computerTurn() {
   var randomIndex = Math.floor(Math.random() * weapons.length);
   return weapons[randomIndex];
@@ -64,18 +53,18 @@ function takeTurn(weapon) {
   var gameWeaponSelection = gameChoice === 'classic' ? classicWeaponSelection : difficultWeaponSelection;
   var computerWeapon = computerTurn();
   hide(gameWeaponSelection);
-  // Create clone of weapons
+
   var cloneWeapon = weapon.cloneNode(true);
   var cloneComputerWeapon = computerWeapon.cloneNode(true);
   chosenWeapons.appendChild(cloneWeapon);
   chosenWeapons.appendChild(cloneComputerWeapon);
   show(chosenWeapons);
-  // Checks to see who wins
+
   var compareResult = compare(weapon, computerWeapon);
   hide(weaponSubtitle);
   resultStatement.innerText = compareResult
   show(resultStatement);
-  // 2 second timer after the game has been played:
+  
   setTimeout(() => {
     hide(chosenWeapons);
     while (chosenWeapons.firstChild) {
@@ -98,7 +87,6 @@ function compare(userWeapon, computerWeapon) {
   || (userWeaponName === 'triforce' && (computerWeaponName === 'paper' || computerWeaponName === 'sword'))
   || (userWeaponName === 'sword' && (computerWeaponName === 'scissors' || computerWeaponName === 'rock'))) {
     userWins += 1;
-    console.log(computerWeaponName)
     userWinCount.innerText = `Wins: ${userWins}`
     return 'You won!'
   } 
@@ -117,36 +105,46 @@ function createPlayer(name, token, wins) {
 };
 
 function createGame(gameType) {
-  var humanPlayer = createPlayer();
-  var computerPlayer = createPlayer('Ganondorf', './assets/Ganon-ALTTP-Sprite.png', 0);
+  var humanPlayer = createPlayer('Link', './assets/TLoZ_Link_Sprite.webp', userWins);
+  var computerPlayer = createPlayer('Ganondorf', './assets/Ganon-ALTTP-Sprite.png', computerWins);
   var game = {
     humanPlayer: humanPlayer,
     computerPlayer: computerPlayer,
     gameType: gameType
   }
-  return game;
+  console.log(game);
+  return game.gameType;
 };
 
 function showClassicWeapons() {
   weapons = [rock1, paper1, scissors1];
-  gameChoice = 'classic';
+  gameChoice = createGame('classic');
   hide(gameSelection);
   hide(gameSubtitle);
   show(classicWeaponSelection);
   show(weaponSubtitle);
   show(changeGameButton);
-  createGame(classicGame);
 };
 
 function showDifficultWeapons() {
   weapons = [rock2, paper2, scissors2, triforce, sword];
-  gameChoice = 'difficult';
+  gameChoice = createGame('difficult');
   hide(gameSelection);
   hide(gameSubtitle);
   show(difficultWeaponSelection);
   show(weaponSubtitle);
   show(changeGameButton);
-  createGame(difficultGame);
+};
+
+function changeGameMode () {
+  hide(changeGameButton);
+  hide(weaponSubtitle);
+  show(gameSelection);
+  show(gameSubtitle);
+  if (gameChoice === 'classic') {
+    hide(classicWeaponSelection);
+  }
+  hide(difficultWeaponSelection);
 };
 
 function hide(element) {
