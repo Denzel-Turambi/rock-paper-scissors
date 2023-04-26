@@ -7,6 +7,7 @@ In order to run this application:
 1. Fork the repository
 2. Clone this repository using the SSH key into your local machine
 3. Once the repository is cloned down, run `open index.html` in your terminal
+4. Or... click this [link](https://denzel-turambi.github.io/rock-paper-scissors/) to access the application!
 ### Preview of App:
 ![Preview](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjI3NTdlMTFkMTdhNTYzYTIyMTc1ZmIzN2EzMzdlMTUwYjIzMmY5MCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/QkqakWjRZ9wYo0WvHV/giphy.gif)
 ### Context:
