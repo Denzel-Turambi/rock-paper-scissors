@@ -106,6 +106,13 @@ main {
   );
 }
 
+.box:hover {
+  background-color: white;
+  border-color: white;
+  color: black;
+  transition: 0.7s
+}
+
 /* WEAPONS */
 .pixel-weapon {
   cursor: pointer;
